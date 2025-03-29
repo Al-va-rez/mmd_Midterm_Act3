@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                font-family: "Times New Roman", Times, serif;
+            }
+            #banner {
+                border: 1px solid black;
+                padding: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav style="margin: 30px;">
+            <ul>
+                <li><a href="index.html">Bucket List</a></li>
+                <li><a href="bible.html">Bible verse</a></li>
+                <li><a href="password.html">Password</a></li>
+            </ul>
+        </nav>
+
+
+        <!-- Bucket List -->
+        <div id="banner">
+            <h1>Viron's Bucket List</h1>
+            <ul>
+                <li>Travel to Japan</li>
+                <li>Overcome thalassophobia</li>
+                <li>Healthy BMI</li>
+            </ul>
+        </div>
+        <!-- /Bucket List -->
+
+
+        <!-- Input -->
+        <div style="margin-bottom: 20px;">
+            <p>
+                New Goal: <input type="text" id="newGoal" placeholder="type here">
+            </p>
+            <button onclick="addNewItem()">Add</button>
+        </div>
+        <!-- /Input -->
+
+
+        <!-- Change Appearance -->
+        <button onclick="changeFont()">Change font</button>
+        <button onclick="revertFont()">Back to original font</button>
+
+        <button onclick="makeTextBold()">Bold Text</button>
+        <button onclick="makeTextNormal()">Normal Text</button>
+        <!-- /Change Appearance -->
+
+        <script>
+            // Font Family
+            function changeFont() {
+                document.querySelector('body').style.fontFamily = 'Arial, Helvetica, sans-serif';
+            }
+            function revertFont() {
+                document.querySelector('body').style.fontFamily = '"Times New Roman", Times, serif';
+            }
+            // Font Family
+
+
+            // Font Weight
+            function makeTextBold() {
+                document.querySelector('body').style.fontWeight = 'bold';
+            }
+            function makeTextNormal() {
+                document.querySelector('body').style.fontWeight = 'normal';
+            }
+            // Font Weight
+
+
+            // Add to bucket list
+            function addNewItem() {
+                // get data
+                var newItem = document.getElementById("newGoal").value;
+
+                // find destination
+                var ul = document.querySelector('ul');
+                // create "home"
+                var li = document.createElement('li');
+
+                // put data to home
+                li.appendChild(document.createTextNode(newItem));
+                // add home to destination
+                ul.appendChild(li);
+            }
+            // Add to bucket list
+        </script>
+    </body>
+</html>
